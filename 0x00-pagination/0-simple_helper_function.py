@@ -20,6 +20,6 @@ def index_range(page: int, page_size: int) -> Tuple[int, int]:
     if page < 1:
         start_in = 0
     else:
-        start_in = (page -1) * page_size
+        start_in = (page - 1) * page_size
         end_in = page * page_size
     return start_in, end_in
