@@ -47,6 +47,10 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
+        """ Simple pagination mandatory
+        Copy index_range from the previous
+        task and the following class into your code
+        """
             assert isinstance(page, int) and page > 0
             assert isinstance(page_size, int) and page_size > 0
 
