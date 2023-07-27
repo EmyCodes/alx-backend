@@ -22,7 +22,7 @@ def index_range(page: int, page_size: int) -> Tuple[int, int]:
     if page < 1:
         start_in = 0
     else:
-        start_index = (page -1) * page_size
+        start_index = (page - 1) * page_size
         end_index = page * page_size
     return start_index, end_index
 
@@ -47,18 +47,20 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
+
         """ Simple pagination mandatory
-        Copy index_range from the previous
-        task and the following class into your code
+        Copy index_range from the
+        previous task and the following class into your code
         """
-            assert isinstance(page, int) and page > 0
-            assert isinstance(page_size, int) and page_size > 0
+        assert isinstance(page, int) and page > 0
+        assert isinstance(page_size, int) and page_size > 0
 
-            start_index, end_index = index_range(page, page_size)
+        start_index, end_index = index_range(page, page_size)
 
-            Server.dataset(self) # Or self.dataset()
-            if len(self.__dataset) < end_index:
-                return []
+        Server.dataset(self)
+        # Or self.dataset()
 
-            return self.__dataset[start_index:end_index]
+        if len(self.__dataset) < end_index:
+            return []
 
+        return self.__dataset[start_index:end_index]
