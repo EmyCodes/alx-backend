@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" a class FIFOCache that inherits
+""" a class LIFOCache that inherits
 from BaseCaching and is a caching system
 """
 
@@ -9,7 +9,7 @@ from collections import OrderedDict
 
 
 class LIFOCache(BaseCaching):
-    """ a class FIFOCache that inherits
+    """ a class LIFOCache that inherits
     from BaseCaching and is a caching system
     """
     def __init__(self):
