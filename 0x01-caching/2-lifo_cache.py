@@ -21,11 +21,14 @@ class LIFOCache(BaseCaching):
         """"put() function"""
         if key is None or item is None:
             return
+        if key not in self.cache_data:
+            if len(self.cache_data) + 1 > BaseCaching.MAX_ITEMS:
+                last_item, _ = self.cache_data.popitem()
+                # Or first_item_deleted = self.cache_data.pop(0)
+                print("DISCARD: {}".format(last_item))
+
         self.cache_data[key] = item
-        if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-            first_item, _last_item = self.cache_data.popitem()
-            # Or first_item_deleted = self.cache_data.pop(0)
-            print("DISCARD: {}".format(first_item))
+        self.cache_data.move_to_end(key, last=True)
 
     def get(self, key):
         """get() function"""
