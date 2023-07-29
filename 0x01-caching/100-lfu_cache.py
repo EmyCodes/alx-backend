@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+"""LFUChacing"""
+
 from collections import defaultdict, OrderedDict
 from base_caching import BaseCaching
 
